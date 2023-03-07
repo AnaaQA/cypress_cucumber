@@ -1,0 +1,23 @@
+name: Cypress tests - Manual
+on: 
+#   push:
+#     branches:
+#       - 'main'
+  workflow_dispatch:
+
+jobs:
+
+  test:
+  
+     name: System test - Cypress Chrome
+     runs-on: ubuntu-20.04
+  
+     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install
+      - run: npm test   
